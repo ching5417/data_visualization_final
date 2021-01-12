@@ -54,29 +54,30 @@ var top3_icon = L.icon({
 
 
 var marker_data_a1;
-$.getScript('static/js/data_a1.js', function(){
+$.getScript('https://ching5417.github.io/final_tmp_data_a1/data_a1.js', function(){
     marker_data_a1 = a1;
 });
 var marker_data_a2;
-$.getScript('static/js/data_a2.js', function(){
+$.getScript('https://ching5417.github.io/final_tmp_data_a2/data_a2.js', function(){
     marker_data_a2 = a2;
 });
 var marker_data_a2_1;
-$.getScript('static/js/data_a2_1.js', function(){
+$.getScript('https://ching5417.github.io/final_tmp_data_a2_1/data_a2_1.js', function(){
     marker_data_a2_1 = a2_1;
 });
 var marker_data_a2_2;
-$.getScript('static/js/data_a2_2.js', function(){
+$.getScript('https://ching5417.github.io/final_tmp_data_a2_2/data_a2_2.js', function(){
     marker_data_a2_2 = a2_2;
 });
 var marker_data_top3;
-$.getScript('static/js/top3.js', function(){
+$.getScript('https://ching5417.github.io/final_tmp_data_top3/top3.js', function(){
     marker_data_top3 = top3_c;
 });
 var map_geo;
 $.getScript('static/js/geo.js', function(){
     map_geo = map_g;
 });
+
 
 
 function updateProgressBar(processed, total, elapsed, layersArray) {
