@@ -1,0 +1,212 @@
+/* html, body{
+    width: 100%;
+    height: 100%;
+    padding: 0;
+    margin: 0;
+  } */
+#map{
+    width: 500px;
+    height: 500px;
+    background: #333;
+  }
+
+.marker-cluster-small {
+  background-color: rgba(181, 226, 140, 0.8);
+  }
+.marker-cluster-small div {
+  background-color: rgba(94, 255, 0, 0.8);
+  }
+
+.marker-cluster-medium {
+  background-color: rgba(241, 211, 87, 0.8);
+  }
+.marker-cluster-medium div {
+  background-color: rgba(255, 204, 0, 0.8);
+  }
+
+.marker-cluster-large {
+  background-color: rgba(253, 156, 115, 0.8);
+  }
+.marker-cluster-large div {
+  background-color: rgba(255, 123, 0, 0.8);
+  }
+
+  /* IE 6-8 fallback colors */
+.leaflet-oldie .marker-cluster-small {
+  background-color: rgb(181, 226, 140);
+  }
+.leaflet-oldie .marker-cluster-small div {
+  background-color: rgb(94, 255, 0);
+  }
+
+.leaflet-oldie .marker-cluster-medium {
+  background-color: rgb(241, 211, 87);
+  }
+.leaflet-oldie .marker-cluster-medium div {
+  background-color: rgb(255, 204, 0);
+  }
+
+.leaflet-oldie .marker-cluster-large {
+  background-color: rgb(253, 156, 115);
+  }
+.leaflet-oldie .marker-cluster-large div {
+  background-color: rgb(255, 123, 0);
+}
+
+.marker-cluster {
+  background-clip: padding-box;
+  border-radius: 20px;
+  }
+.marker-cluster div {
+  width: 30px;
+  height: 30px;
+  margin-left: 5px;
+  margin-top: 5px;
+
+  text-align: center;
+  border-radius: 15px;
+  font: 12px "Helvetica Neue", Arial, Helvetica, sans-serif;
+  }
+.marker-cluster span {
+  line-height: 30px;
+  }
+
+  
+
+
+
+
+body {
+    margin: 0;
+    display: flex;
+}
+
+.controls {
+    
+}
+
+.left_layout {
+    width: 50vw;
+    height: 100vh;
+    /* border: 1px solid black; */
+    border: 1px solid #DDDDDD;
+    margin: auto;
+    padding: auto;
+    align-items:center;
+    display: flex;
+    flex-direction: column;
+    font-size: 1em;
+    font-weight: bold;
+    fill: dimgrey;
+}
+
+.selected_layout {
+  width: 100%;
+  height: 5%;
+  align-items:center;
+  margin: auto;
+  padding: auto;
+  /* border: 1px solid black; */
+  border: 1.5px solid #DDDDDD;
+  display: flex;
+  flex-direction: column;
+  background-color: #F7F7F7;
+}
+
+.map_layout {
+  width: 100%;
+  height: 60%;
+  /* border: 1px solid black; */
+  border: 1px solid #DDDDDD;
+  margin: auto;
+  padding: auto;
+  align-items:center;
+  display: flex;
+  flex-direction: column;
+}
+
+.bar_chart_layout {
+    width: 100%;
+    height: 35%;
+    align-items:center;
+    margin: auto;
+    padding: auto;
+    /* border: 1px solid black; */
+    border: 1.5px solid #DDDDDD;
+    display: flex;
+    flex-direction: column;
+    background-color: #F7F7F7;
+}
+
+.charts {
+  /* width: 50vw; */
+  width:50vw;
+  height: 100vh;
+  align-items:center;
+  margin: auto;
+  padding: auto;
+  border: 1px solid #DDDDDD;
+  display: flex;
+  flex-direction: column;
+  font-size: 1em;
+  font-weight: bold;
+  fill: dimgrey;
+}
+
+.chart {
+  width: 100%;
+  height: 50%;
+  align-items:center;
+  margin: auto;
+  padding: auto;
+  /* border: 1px solid black; */
+  border: 1px solid #DDDDDD;
+  display: flex;
+  flex-direction: column;
+}
+#top_chart{
+  /* width: 700;
+  height: 350; */
+  background-color: #f7f7f7f5;
+}
+#bottom_chart{
+  /* width: 700;
+  height: 350; */
+  background-color: #f7f7f7f5;
+}
+
+
+rect {
+  fill: darkred;
+}
+
+.tick text {
+font-size: 14px;
+fill: dimgrey;
+}
+
+.tick line {
+stroke: dimgrey;
+}
+
+.axis-label {
+font-size: 14px;
+fill: dimgrey;
+}
+
+.title {
+font-size: 1em;
+fill: dimgrey;
+margin:15px;
+font-weight: bold;
+}
+
+
+select{
+  width:auto;
+  height:auto;
+  font-size: 1em;
+  fill: dimgrey;
+  margin:15px;
+  font-weight: bold;
+}

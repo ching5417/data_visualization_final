@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8" >
+        <meta name="viewport" content="width=device-width">
+        <link href="static/css/styles.css" rel="stylesheet" type="text/css">
+        <link rel="stylesheet" href="https://unpkg.com/leaflet@1.3.4/dist/leaflet.css" integrity="sha512-puBpdR0798OZvTTbP4A8Ix/l+A4dHDD0DGqYW6RQ+9jxkRFclaxxQb/SJAWZfWAkuyeQUytO7+7N4QKrDh+drA==" crossorigin=""/>
+        <script src="https://unpkg.com/leaflet@1.3.4/dist/leaflet.js" integrity="sha512-nMMmRyTVoLYqjP9hrbed9S+FzjZHW5gY1TWCHA5ckwXZBadntCNs8kEqAWdrb9O7rxbCaA4lKTIWjDXZxflOcA==" crossorigin=""></script>
+        <link href="https://unpkg.com/leaflet.markercluster@1.4.1/dist/MarkerCluster.css"></link>
+        <link href="https://unpkg.com/leaflet.markercluster@1.4.1/dist/MarkerCluster.Default.css"></link>
+        <script src="https://unpkg.com/leaflet.markercluster@1.4.1/dist/leaflet.markercluster.js"></script>
+        <script src="https://unpkg.com/d3@5.6.0/dist/d3.min.js"></script>
+        <title>dv final</title>
+    </head>
+    <body>
+        <div class="left_layout">
+            <div class="selected_layout">
+                <form>
+                選擇縣市:
+                <select id="city_select" onchange="changeSelection(this.options[this.options.selectedIndex].value); selected_fn(this.options[this.options.selectedIndex].value); "></select>
+                </form>
+            </div>
+            <div class="map_layout">
+                <div style="margin:15px">車禍案件分布圖</div>
+                <div style="width:650px;height:65%;margin-left:15px;margin-right:15px;">
+                    <div id="map" style="width:650px;height:480px;"></div>
+                </div>
+                <!-- <div style="width:500px;height:20px; margin:5px; padding:5px;">
+                    <p id="debug"style="color:white;"></p> 
+                </div>
+                <div style="width:500px;height:20px; margin:5px; padding:5px;"></div> -->
+                
+            </div>
+            <div class="bar_chart_layout" id="bar_chart_layout">  <!-- bottom-chart -->
+                <div style="margin:15px">路口車禍數排行榜</div>
+                <svg id="bar_chart" width="700" height="300"></svg>
+            </div>
+        </div>
+        <div class="charts">
+            <div class="chart" id="top_chart_layout">
+                <div  class="title">
+                    車禍案件數及不同縣市比較(時間-年)
+                    &nbsp;
+                      <input type="checkbox" id="choose0_top" checked="checked">
+                          <select id="county0_top">
+                          <option value="Taiwan" selected>全台灣</option>
+                          <option value="Taipei City">台北市</option>
+                          <option value="New Taipei City">新北市</option>
+                      <option value="Taoyuan City">桃園市</option>
+                      <option value="Hsinchu City">新竹市</option>
+                      <option value="Hsinchu County">新竹縣</option>
+                      <option value="Miaoli County">苗栗縣</option>
+                      <option value="Taichung City">台中市</option>
+                      <option value="Changhua County">彰化縣</option>
+                      <option value="Nantou County">南投縣</option>
+                      <option value="Yunlin County">雲林縣</option>
+                      <option value="Chiayi City">嘉義市</option>
+                      <option value="Chiayi County">嘉義縣</option>
+                      <option value="Tainan City">台南市</option>
+                      <option value="Kaohsiung City">高雄市</option>
+                      <option value="Pingtung County">屏東縣</option>
+                      <option value="Yilan County">宜蘭縣</option>
+                      <option value="Hualien County">花蓮縣</option>
+                      <option value="Taitung County">台東縣</option>
+                      <option value="Penghu County">澎湖縣</option>
+                      <option value="Kinmen County">金門縣</option>
+                      <option value="Lienchiang County">連江縣</option>
+                          </select>
+                    &nbsp;
+                      <input type="checkbox" id="choose1_top">
+                          <select id="county1_top">
+                          <option value="Taiwan" selected>全台灣</option>
+                          <option value="Taipei City">台北市</option>
+                          <option value="New Taipei City">新北市</option>
+                      <option value="Taoyuan City">桃園市</option>
+                      <option value="Hsinchu City">新竹市</option>
+                      <option value="Hsinchu County">新竹縣</option>
+                      <option value="Miaoli County">苗栗縣</option>
+                      <option value="Taichung City">台中市</option>
+                      <option value="Changhua County">彰化縣</option>
+                      <option value="Nantou County">南投縣</option>
+                      <option value="Yunlin County">雲林縣</option>
+                      <option value="Chiayi City">嘉義市</option>
+                      <option value="Chiayi County">嘉義縣</option>
+                      <option value="Tainan City">台南市</option>
+                      <option value="Kaohsiung City">高雄市</option>
+                      <option value="Pingtung County">屏東縣</option>
+                      <option value="Yilan County">宜蘭縣</option>
+                      <option value="Hualien County">花蓮縣</option>
+                      <option value="Taitung County">台東縣</option>
+                      <option value="Penghu County">澎湖縣</option>
+                      <option value="Kinmen County">金門縣</option>
+                      <option value="Lienchiang County">連江縣</option>
+                          </select>
+                    &nbsp;
+                          <input type="checkbox" id="choose2_top">
+                      <select id="county2_top">
+                          <option value="Taiwan" selected>全台灣</option>
+                          <option value="Taipei City">台北市</option>
+                          <option value="New Taipei City">新北市</option>
+                      <option value="Taoyuan City">桃園市</option>
+                      <option value="Hsinchu City">新竹市</option>
+                      <option value="Hsinchu County">新竹縣</option>
+                      <option value="Miaoli County">苗栗縣</option>
+                      <option value="Taichung City">台中市</option>
+                      <option value="Changhua County">彰化縣</option>
+                      <option value="Nantou County">南投縣</option>
+                      <option value="Yunlin County">雲林縣</option>
+                      <option value="Chiayi City">嘉義市</option>
+                      <option value="Chiayi County">嘉義縣</option>
+                      <option value="Tainan City">台南市</option>
+                      <option value="Kaohsiung City">高雄市</option>
+                      <option value="Pingtung County">屏東縣</option>
+                      <option value="Yilan County">宜蘭縣</option>
+                      <option value="Hualien County">花蓮縣</option>
+                      <option value="Taitung County">台東縣</option>
+                      <option value="Penghu County">澎湖縣</option>
+                      <option value="Kinmen County">金門縣</option>
+                      <option value="Lienchiang County">連江縣</option>
+                          </select>
+                    </div>
+                <svg id="top_chart" width="750" height="350">
+                </svg>
+                  <script src="static/js/chart_year.js"></script>
+            </div>
+            <div class="chart" id="bottom_chart_layout">
+                <div class="title">
+                    車禍案件數及不同縣市比較(時間-小時)
+                    &nbsp;
+                      <input type="checkbox" id="choose0_bottom" checked="checked">
+                          <select id="county0_bottom">
+                          <option value="Taiwan" selected>全台灣</option>
+                          <option value="Taipei City">台北市</option>
+                          <option value="New Taipei City">新北市</option>
+                      <option value="Taoyuan City">桃園市</option>
+                      <option value="Hsinchu City">新竹市</option>
+                      <option value="Hsinchu County">新竹縣</option>
+                      <option value="Miaoli County">苗栗縣</option>
+                      <option value="Taichung City">台中市</option>
+                      <option value="Changhua County">彰化縣</option>
+                      <option value="Nantou County">南投縣</option>
+                      <option value="Yunlin County">雲林縣</option>
+                      <option value="Chiayi City">嘉義市</option>
+                      <option value="Chiayi County">嘉義縣</option>
+                      <option value="Tainan City">台南市</option>
+                      <option value="Kaohsiung City">高雄市</option>
+                      <option value="Pingtung County">屏東縣</option>
+                      <option value="Yilan County">宜蘭縣</option>
+                      <option value="Hualien County">花蓮縣</option>
+                      <option value="Taitung County">台東縣</option>
+                      <option value="Penghu County">澎湖縣</option>
+                      <option value="Kinmen County">金門縣</option>
+                      <option value="Lienchiang County">連江縣</option>
+                          </select>
+                    &nbsp;
+                      <input type="checkbox" id="choose1_bottom">
+                          <select id="county1_bottom">
+                          <option value="Taiwan" selected>全台灣</option>
+                          <option value="Taipei City">台北市</option>
+                          <option value="New Taipei City">新北市</option>
+                      <option value="Taoyuan City">桃園市</option>
+                      <option value="Hsinchu City">新竹市</option>
+                      <option value="Hsinchu County">新竹縣</option>
+                      <option value="Miaoli County">苗栗縣</option>
+                      <option value="Taichung City">台中市</option>
+                      <option value="Changhua County">彰化縣</option>
+                      <option value="Nantou County">南投縣</option>
+                      <option value="Yunlin County">雲林縣</option>
+                      <option value="Chiayi City">嘉義市</option>
+                      <option value="Chiayi County">嘉義縣</option>
+                      <option value="Tainan City">台南市</option>
+                      <option value="Kaohsiung City">高雄市</option>
+                      <option value="Pingtung County">屏東縣</option>
+                      <option value="Yilan County">宜蘭縣</option>
+                      <option value="Hualien County">花蓮縣</option>
+                      <option value="Taitung County">台東縣</option>
+                      <option value="Penghu County">澎湖縣</option>
+                      <option value="Kinmen County">金門縣</option>
+                      <option value="Lienchiang County">連江縣</option>
+                          </select>
+                    &nbsp;
+                          <input type="checkbox" id="choose2_bottom">
+                      <select id="county2_bottom">
+                          <option value="Taiwan" selected>全台灣</option>
+                          <option value="Taipei City">台北市</option>
+                          <option value="New Taipei City">新北市</option>
+                      <option value="Taoyuan City">桃園市</option>
+                      <option value="Hsinchu City">新竹市</option>
+                      <option value="Hsinchu County">新竹縣</option>
+                      <option value="Miaoli County">苗栗縣</option>
+                      <option value="Taichung City">台中市</option>
+                      <option value="Changhua County">彰化縣</option>
+                      <option value="Nantou County">南投縣</option>
+                      <option value="Yunlin County">雲林縣</option>
+                      <option value="Chiayi City">嘉義市</option>
+                      <option value="Chiayi County">嘉義縣</option>
+                      <option value="Tainan City">台南市</option>
+                      <option value="Kaohsiung City">高雄市</option>
+                      <option value="Pingtung County">屏東縣</option>
+                      <option value="Yilan County">宜蘭縣</option>
+                      <option value="Hualien County">花蓮縣</option>
+                      <option value="Taitung County">台東縣</option>
+                      <option value="Penghu County">澎湖縣</option>
+                      <option value="Kinmen County">金門縣</option>
+                      <option value="Lienchiang County">連江縣</option>
+                          </select>
+                </div>
+                  <svg id="bottom_chart" width="850" height="350">
+                  </svg>
+                  <script src="static/js/chart_hour.js"></script>
+            </div>
+        </div>
+        <script src="https://unpkg.com/jquery"></script>
+        <!--呼叫TGOS MAP API (lite)-->
+        <script type="text/javascript" src="http://api.tgos.tw/TGOS_API/tgos?ver=2&AppID=x+JLVSx85Lk=&APIKey=in8W74q0ogpcfW/STwicK8D5QwCdddJf05/7nb+OtDh8R99YN3T0LurV4xato3TpL/fOfylvJ9Wv/khZEsXEWxsBmg+GEj4AuokiNXCh14Rei21U5GtJpIkO++Mq3AguFK/ISDEWn4hMzqgrkxNe1Q=="charset="utf-8"></script>
+        <script src=static/js/map.js" type="text/javascript"></script>
+        <script src="static/js/bar_chart.js"></script>
+    </body>
+</html>
+
+
+
