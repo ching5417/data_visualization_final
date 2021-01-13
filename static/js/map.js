@@ -134,8 +134,8 @@ function selected_fn(s){
         
     }
     else{
-        $("#county0_top").trigger("change", select_index[s]);
-        $("#county0_bottom").trigger("change", select_index[s]);
+        $("#county0_top").trigger("change");
+        $("#county0_bottom").trigger("change");
         document.getElementById("county0_top").selectedIndex = select_index[s];
         document.getElementById("county0_bottom").selectedIndex = select_index[s];
         selected_city = s;
