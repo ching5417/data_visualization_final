@@ -27,10 +27,10 @@ var find_a2 = {'臺北市':0,'新北市':0,'桃園市':0,'臺中市':1,'臺南�
 '宜蘭縣':2,'花蓮縣':2,'臺東縣':2,'澎湖縣':2,'金門縣':2,'連江縣':2,
 '基隆市':2,'新竹市':2,'嘉義市':2};
 
-// var city_en = {'臺北市':"Taipei City",'新北市':"New Taipei City",'桃園市':"Taoyuan City",'臺中市':"Taichung City",'臺南市':"Tainan City",'高雄市':"Kaohsiung City",
-// '新竹縣':"Hsinchu County",'苗栗縣':"Miaoli County",'彰化縣':"Changhua County",'南投縣':"Nantou County",'雲林縣':"Yunlin County",'嘉義縣':"Chiayi County",'屏東縣':"Pingtung County",
-// '宜蘭縣':"Yilan County",'花蓮縣':"Hualien County",'臺東縣':"Taitung County",'澎湖縣':"Penghu County",'金門縣':"Kinmen County",'連江縣':"Lienchiang County",
-// '基隆市':"Keelung City",'新竹市':"Hsinchu City",'嘉義市':"Chiayi City"};
+var city_en = {'臺北市':"Taipei City",'新北市':"New Taipei City",'桃園市':"Taoyuan City",'臺中市':"Taichung City",'臺南市':"Tainan City",'高雄市':"Kaohsiung City",
+'新竹縣':"Hsinchu County",'苗栗縣':"Miaoli County",'彰化縣':"Changhua County",'南投縣':"Nantou County",'雲林縣':"Yunlin County",'嘉義縣':"Chiayi County",'屏東縣':"Pingtung County",
+'宜蘭縣':"Yilan County",'花蓮縣':"Hualien County",'臺東縣':"Taitung County",'澎湖縣':"Penghu County",'金門縣':"Kinmen County",'連江縣':"Lienchiang County",
+'基隆市':"Keelung City",'新竹市':"Hsinchu City",'嘉義市':"Chiayi City"};
 
 var select_index = {'基隆市':1, '臺北市':2,'新北市':3,'桃園市':4,
 '新竹市':5, '新竹縣':6, '苗栗縣':7,'臺中市':8,'彰化縣':9,'南投縣':10, 
@@ -144,10 +144,12 @@ function selected_fn(s){
         }
         draw_map(selected_city);
         first_draw = false;
-        document.getElementById("county0_top").selectedIndex = select_index[s];
-        document.getElementById("county0_bottom").selectedIndex = select_index[s];
-        $('select#county0_top').trigger("change");
-        $('select#county0_bottom').trigger("change");
+        // document.getElementById("county0_top").selectedIndex = select_index[s];
+        // document.getElementById("county0_bottom").selectedIndex = select_index[s];
+        // $('select#county0_top').trigger("change");
+        // $('select#county0_bottom').trigger("change");
+        $("#county0_top").val(city_en[s]).trigger('change');
+        $("#county0_bottom").val(city_en[s]).trigger('change');
     }
 }
 function draw_map(selected_city){
