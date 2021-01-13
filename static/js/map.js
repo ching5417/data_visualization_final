@@ -71,23 +71,23 @@ var top3_icon = L.icon({
 
 
 var marker_data_a1;
-$.getScript('https://ching5417.github.io/final_tmp_data_a1/data_a1.js', function(){
+$.getScript('http://ching5417.github.io/final_tmp_data_a1/data_a1.js', function(){
     marker_data_a1 = a1;
 });
 var marker_data_a2;
-$.getScript('https://ching5417.github.io/final_tmp_data_a2/data_a2.js', function(){
+$.getScript('http://ching5417.github.io/final_tmp_data_a2/data_a2.js', function(){
     marker_data_a2 = a2;
 });
 var marker_data_a2_1;
-$.getScript('https://ching5417.github.io/final_tmp_data_a2_1/data_a2_1.js', function(){
+$.getScript('http://ching5417.github.io/final_tmp_data_a2_1/data_a2_1.js', function(){
     marker_data_a2_1 = a2_1;
 });
 var marker_data_a2_2;
-$.getScript('https://ching5417.github.io/final_tmp_data_a2_2/data_a2_2.js', function(){
+$.getScript('http://ching5417.github.io/final_tmp_data_a2_2/data_a2_2.js', function(){
     marker_data_a2_2 = a2_2;
 });
 var marker_data_top3;
-$.getScript('https://ching5417.github.io/final_tmp_data_top3/top3.js', function(){
+$.getScript('http://ching5417.github.io/final_tmp_data_top3/top3.js', function(){
     marker_data_top3 = top3_c;
 });
 var map_geo;
@@ -122,8 +122,8 @@ var selected_city = '臺北市';
 selected_fn_first();
 function selected_fn_first(){
     map = L.map('map').setView([24.271694,120.507181], 6.5);
-    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-        attribution: '<a href="https://www.openstreetmap.org/">OpenStreetMap</a> | <a href="https://noob.tw/openstreetmap/">Tutorial 教學</a>',
+    L.tileLayer('http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+        attribution: '<a href="http://www.openstreetmap.org/">OpenStreetMap</a> | <a href="http://noob.tw/openstreetmap/">Tutorial 教學</a>',
         maxZoom: 18,
     }).addTo(map);
     first_draw = false;
@@ -144,8 +144,8 @@ function selected_fn(s){
 }
 function draw_map(selected_city){
     map = L.map('map', {zoom: 13}).setView(all_city_lat_long[selected_city], all_city_view[selected_city]);
-    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-        attribution: '<a href="https://www.openstreetmap.org/">OpenStreetMap</a> | <a href="https://noob.tw/openstreetmap/">Tutorial 教學</a>',
+    L.tileLayer('http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+        attribution: '<a href="http://www.openstreetmap.org/">OpenStreetMap</a> | <a href="http://noob.tw/openstreetmap/">Tutorial 教學</a>',
         maxZoom: 18,
     }).addTo(map);
 
