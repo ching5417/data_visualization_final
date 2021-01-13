@@ -3,6 +3,20 @@ var city_en = {'臺北市':"Taipei City",'新北市':"New Taipei City",'桃園�
 '宜蘭縣':"Yilan County",'花蓮縣':"Hualien County",'臺東縣':"Taitung County",'澎湖縣':"Penghu County",'金門縣':"Kinmen County",'連江縣':"Lienchiang County",
 '基隆市':"Keelung City",'新竹市':"Hsinchu City",'嘉義市':"Chiayi City"};
 
+
+function update_top_(s){
+  if (d3.select("#choose1_top").property("checked")) {choose1_top = 1;}
+else {choose1_top = 0;}	
+  if (d3.select("#choose2_top").property("checked")) {choose2_top = 1;}
+else {choose2_top = 0;}
+county0_top = city_en[s];
+county1_top = d3.select("#county1_top").node().value;
+county2_top = d3.select("#county2_top").node().value;
+svg_top.selectAll("*").remove();
+render_top(countyData);
+}
+
+
 (function (d3) {
     'use strict';
   
@@ -71,17 +85,6 @@ var city_en = {'臺北市':"Taipei City",'新北市':"New Taipei City",'桃園�
       svg_top.selectAll("*").remove();
       render_top(countyData);
     }
-    function update_top_(s){
-      if (d3.select("#choose1_top").property("checked")) {choose1_top = 1;}
-    else {choose1_top = 0;}	
-      if (d3.select("#choose2_top").property("checked")) {choose2_top = 1;}
-    else {choose2_top = 0;}
-    county0_top = city_en[s];
-    county1_top = d3.select("#county1_top").node().value;
-    county2_top = d3.select("#county2_top").node().value;
-    svg_top.selectAll("*").remove();
-    render_top(countyData);
-  }
   
     const render_top = (data) => {
       
