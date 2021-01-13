@@ -134,22 +134,12 @@ function selected_fn(s){
         
     }
     else{
-        // var event_1 = new Event('change');
-        // document.getElementById("county0_top").dispatchEvent(event_1);
-        // var event_2 = new Event('change');
-        // document.getElementById("county0_bottom").dispatchEvent(event_2);
         selected_city = s;
         if(!first_draw){
             map.remove();
         }
         draw_map(selected_city);
         first_draw = false;
-        // document.getElementById("county0_top").selectedIndex = select_index[s];
-        // document.getElementById("county0_bottom").selectedIndex = select_index[s];
-        // $('select#county0_top').trigger("change");
-        // $('select#county0_bottom').trigger("change");
-        // $("#county0_top").val(city_en[s]).trigger('change');
-        // $("#county0_bottom").val(city_en[s]).trigger('change');
     }
 }
 function draw_map(selected_city){
