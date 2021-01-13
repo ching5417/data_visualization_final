@@ -148,8 +148,8 @@ function selected_fn(s){
         // document.getElementById("county0_bottom").selectedIndex = select_index[s];
         // $('select#county0_top').trigger("change");
         // $('select#county0_bottom').trigger("change");
-        $("#county0_top").val(city_en[s]).trigger('change');
-        $("#county0_bottom").val(city_en[s]).trigger('change');
+        // $("#county0_top").val(city_en[s]).trigger('change');
+        // $("#county0_bottom").val(city_en[s]).trigger('change');
     }
 }
 function draw_map(selected_city){
