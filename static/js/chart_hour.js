@@ -3,18 +3,6 @@ var city_en = {'臺北市':"Taipei City",'新北市':"New Taipei City",'桃園�
 '宜蘭縣':"Yilan County",'花蓮縣':"Hualien County",'臺東縣':"Taitung County",'澎湖縣':"Penghu County",'金門縣':"Kinmen County",'連江縣':"Lienchiang County",
 '基隆市':"Keelung City",'新竹市':"Hsinchu City",'嘉義市':"Chiayi City"};
 
-function update_(s){
-  if (d3.select("#choose1_bottom").property("checked")) {choose1_bottom = 1;}
-else {choose1_bottom = 0;}	
-  if (d3.select("#choose2_bottom").property("checked")) {choose2_bottom = 1;}
-else {choose2_bottom = 0;}
-county0_bottom = city_en[s];
-county1_bottom = d3.select("#county1_bottom").node().value;
-county2_bottom = d3.select("#county2_bottom").node().value;
-  svg_bottom.selectAll("*").remove();
-render(countyData);
-}
-
 (function (d3) {
     'use strict';
   

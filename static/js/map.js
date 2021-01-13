@@ -134,8 +134,8 @@ function selected_fn(s){
         
     }
     else{
-        document.getElementById("county0_top")[select_index[s]].selected = true;
-        document.getElementById("county0_bottom")[select_index[s]].selected = true;
+        document.getElementById("county0_top").selectedIndex = select_index[s];
+        document.getElementById("county0_bottom").selectedIndex = select_index[s];
         selected_city = s;
         if(!first_draw){
             map.remove();
