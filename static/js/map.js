@@ -239,6 +239,7 @@ function draw_map(selected_city){
         L.circle(coor_top3, {color: null,
         fillColor: 'blue',
         fillOpacity: 0.02,
-        radius: 200}).addTo(map); //將 L.mark(地標) 的圖層放到 makers 上面
+        radius: 200});
+        coor_top3.addTo(map); //將 L.mark(地標) 的圖層放到 makers 上面
     }
 }
