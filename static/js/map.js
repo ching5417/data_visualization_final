@@ -136,10 +136,12 @@ function selected_fn(s){
     else{
         document.getElementById("county0_top").selectedIndex = select_index[s];
         document.getElementById("county0_bottom").selectedIndex = select_index[s];
-        var event_1 = new Event('change');
-        document.getElementById("county0_top").dispatchEvent(event_1);
-        var event_2 = new Event('change');
-        document.getElementById("county0_bottom").dispatchEvent(event_2);
+        document.getElementById("county0_top").$forceUpdate();
+        document.getElementById("county0_bottom").$forceUpdate();
+        // var event_1 = new Event('change');
+        // document.getElementById("county0_top").dispatchEvent(event_1);
+        // var event_2 = new Event('change');
+        // document.getElementById("county0_bottom").dispatchEvent(event_2);
         selected_city = s;
         if(!first_draw){
             map.remove();
