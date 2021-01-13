@@ -134,14 +134,10 @@ function selected_fn(s){
         
     }
     else{
+        $("#county0_top").trigger("change", select_index[s]);
+        $("#county0_bottom").trigger("change", select_index[s]);
         document.getElementById("county0_top").selectedIndex = select_index[s];
         document.getElementById("county0_bottom").selectedIndex = select_index[s];
-
-        // Create a new 'change' event
-        var event = new Event('change');
-        // Dispatch it.
-        document.getElementById("county0_top").dispatchEvent(event);
-        document.getElementById("county0_bottom").dispatchEvent(event);
         selected_city = s;
         if(!first_draw){
             map.remove();
