@@ -25,13 +25,17 @@ var all_city_view = {'臺北市':11,'新北市':9,'桃園市':9.3,'臺中市':9.
 var find_a2 = {'臺北市':0,'新北市':0,'桃園市':0,'臺中市':1,'臺南市':1,'高雄市':1,
 '新竹縣':1,'苗栗縣':1,'彰化縣':2,'南投縣':2,'雲林縣':2,'嘉義縣':2,'屏東縣':2,
 '宜蘭縣':2,'花蓮縣':2,'臺東縣':2,'澎湖縣':2,'金門縣':2,'連江縣':2,
-'基隆市':2,'新竹市':2,'嘉義市':2}
+'基隆市':2,'新竹市':2,'嘉義市':2};
 
-var city_en = {'臺北市':"Taipei City",'新北市':"New Taipei City",'桃園市':"Taoyuan City",'臺中市':"Taichung City",'臺南市':"Tainan City",'高雄市':"Kaohsiung City",
-'新竹縣':"Hsinchu County",'苗栗縣':"Miaoli County",'彰化縣':"Changhua County",'南投縣':"Nantou County",'雲林縣':"Yunlin County",'嘉義縣':"Chiayi County",'屏東縣':"Pingtung County",
-'宜蘭縣':"Yilan County",'花蓮縣':"Hualien County",'臺東縣':"Taitung County",'澎湖縣':"Penghu County",'金門縣':"Kinmen County",'連江縣':"Lienchiang County",
-'基隆市':"Keelung City",'新竹市':"Hsinchu City",'嘉義市':"Chiayi City"};
+// var city_en = {'臺北市':"Taipei City",'新北市':"New Taipei City",'桃園市':"Taoyuan City",'臺中市':"Taichung City",'臺南市':"Tainan City",'高雄市':"Kaohsiung City",
+// '新竹縣':"Hsinchu County",'苗栗縣':"Miaoli County",'彰化縣':"Changhua County",'南投縣':"Nantou County",'雲林縣':"Yunlin County",'嘉義縣':"Chiayi County",'屏東縣':"Pingtung County",
+// '宜蘭縣':"Yilan County",'花蓮縣':"Hualien County",'臺東縣':"Taitung County",'澎湖縣':"Penghu County",'金門縣':"Kinmen County",'連江縣':"Lienchiang County",
+// '基隆市':"Keelung City",'新竹市':"Hsinchu City",'嘉義市':"Chiayi City"};
 
+var select_index = {'基隆市':1, '臺北市':2,'新北市':3,'桃園市':4,
+'新竹市':5, '新竹縣':6, '苗栗縣':7,'臺中市':8,'彰化縣':9,'南投縣':10, 
+'雲林縣':11,'嘉義市':12,'嘉義縣':13,'臺南市':14,'高雄市':15,'屏東縣':16,
+'宜蘭縣':17,'花蓮縣':18,'臺東縣':19,'澎湖縣':20,'金門縣':21,'連江縣':22};
 
 
 var a1_icon = L.icon({
@@ -130,8 +134,8 @@ function selected_fn(s){
         
     }
     else{
-        county0_top = city_en[s];
-        county0_bottom = city_en[s];
+        document.getElementById("county0_top")[select_index[s]].selected = true;
+        document.getElementById("county0_bottom")[select_index[s]].selected = true;
         selected_city = s;
         if(!first_draw){
             map.remove();
