@@ -136,8 +136,8 @@ function selected_fn(s){
     else{
         document.getElementById("county0_top").selectedIndex = select_index[s];
         document.getElementById("county0_bottom").selectedIndex = select_index[s];
-        document.getElementById("county0_top").$forceUpdate();
-        document.getElementById("county0_bottom").$forceUpdate();
+        $('select#county0_top').trigger("change");
+        $('select#county0_bottom').trigger("change");
         // var event_1 = new Event('change');
         // document.getElementById("county0_top").dispatchEvent(event_1);
         // var event_2 = new Event('change');
