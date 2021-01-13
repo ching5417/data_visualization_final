@@ -171,8 +171,8 @@ function draw_map(selected_city){
     map.addLayer(county_city);
 
     for(let k = 0; k < marker_data_top3[selected_city].length; k++){
-        let this_data_top3 = marker_data_top3[selected_city][k];
-        let coor_top3 = [parseFloat(this_data_top3[0]), parseFloat(this_data_top3[1])];
+        this_data_top3 = marker_data_top3[selected_city][k];
+        coor_top3 = [parseFloat(this_data_top3[0]), parseFloat(this_data_top3[1])];
         L.circle(coor_top3, {color: null,
         fillColor: 'blue',
         fillOpacity: 0.02,
@@ -182,55 +182,55 @@ function draw_map(selected_city){
     /***** markers grop *****/
     var markers = L.markerClusterGroup({ disableClusteringAtZoom: 16, chunkedLoading: true, chunkProgress: updateProgressBar });
     for(let i = 0; i < marker_data_a1[selected_city].length; i++){
-        let this_data_a1 = marker_data_a1[selected_city][i];
-        let t_a1 = "【詳細資料】\n"
+        this_data_a1 = marker_data_a1[selected_city][i];
+        t_a1 = "【詳細資料】\n"
                 +" 座標: ("+this_data_a1[0]+","+this_data_a1[1]+")\n"
                 +" 發生時間: "+this_data_a1[2]+"\n"
                 +" 發生地點: "+this_data_a1[3]+"\n"
                 +" 死亡受傷人數: "+this_data_a1[4]+"\n"
                 +" 車種: "+this_data_a1[5];  //2-5
-        let coor_a1 = [parseFloat(this_data_a1[0]), parseFloat(this_data_a1[1])];
+        coor_a1 = [parseFloat(this_data_a1[0]), parseFloat(this_data_a1[1])];
         markers.addLayer(L.marker(coor_a1, {icon: a1_icon, title: t_a1})); //將 L.mark(地標) 的圖層放到 makers 上面
     }
     if(find_a2[selected_city] === 0){
         for(let j = 0; j < marker_data_a2[selected_city].length; j++){
-            let this_data_a2 = marker_data_a2[selected_city][j];
-            let t_a2 = "【詳細資料】\n"
+            this_data_a2 = marker_data_a2[selected_city][j];
+            t_a2 = "【詳細資料】\n"
                     +" 座標: ("+this_data_a2[0]+","+this_data_a2[1]+")\n"
                     +" 發生時間: "+this_data_a2[2]+"\n"
                     +" 發生地點: "+this_data_a2[3]+"\n"
                     +" 死亡受傷人數: "+this_data_a2[4]+"\n"
                     +" 車種: "+this_data_a2[5];  //2-5
             
-            let coor_a2 = [parseFloat(this_data_a2[0]), parseFloat(this_data_a2[1])];
+            coor_a2 = [parseFloat(this_data_a2[0]), parseFloat(this_data_a2[1])];
             markers.addLayer(L.marker(coor_a2, {icon: a2_icon, title: t_a2})); //將 L.mark(地標) 的圖層放到 makers 上面
         }
     }
     else if(find_a2[selected_city] === 1){
         for(let m = 0; m < marker_data_a2_1[selected_city].length; m++){
-            let this_data_a2_1 = marker_data_a2_1[selected_city][m];
-            let t_a2_1 = "【詳細資料】\n"
+            this_data_a2_1 = marker_data_a2_1[selected_city][m];
+            t_a2_1 = "【詳細資料】\n"
                     +" 座標: ("+this_data_a2_1[0]+","+this_data_a2_1[1]+")\n"
                     +" 發生時間: "+this_data_a2_1[2]+"\n"
                     +" 發生地點: "+this_data_a2_1[3]+"\n"
                     +" 死亡受傷人數: "+this_data_a2_1[4]+"\n"
                     +" 車種: "+this_data_a2_1[5];  //2-5
             
-            let coor_a2_1 = [parseFloat(this_data_a2_1[0]), parseFloat(this_data_a2_1[1])];
+            coor_a2_1 = [parseFloat(this_data_a2_1[0]), parseFloat(this_data_a2_1[1])];
             markers.addLayer(L.marker(coor_a2_1, {icon: a2_icon, title: t_a2_1})); //將 L.mark(地標) 的圖層放到 makers 上面
         }
     }
     else{
         for(let n = 0; n < marker_data_a2_2[selected_city].length; n++){
-            let this_data_a2_2 = marker_data_a2_2[selected_city][n];
-            let t_a2_2 = "【詳細資料】\n"
+            this_data_a2_2 = marker_data_a2_2[selected_city][n];
+            t_a2_2 = "【詳細資料】\n"
                     +" 座標: ("+this_data_a2_2[0]+","+this_data_a2_2[1]+")\n"
                     +" 發生時間: "+this_data_a2_2[2]+"\n"
                     +" 發生地點: "+this_data_a2_2[3]+"\n"
                     +" 死亡受傷人數: "+this_data_a2_2[4]+"\n"
                     +" 車種: "+this_data_a2_2[5];  //2-5
             
-            let coor_a2_2 = [parseFloat(this_data_a2_2[0]), parseFloat(this_data_a2_2[1])];
+            coor_a2_2 = [parseFloat(this_data_a2_2[0]), parseFloat(this_data_a2_2[1])];
             markers.addLayer(L.marker(coor_a2_2, {icon: a2_icon, title: t_a2_2})); //將 L.mark(地標) 的圖層放到 makers 上面
         }
     }
