@@ -242,5 +242,3 @@ function draw_map(selected_city){
         radius: 200}).addTo(map); //將 L.mark(地標) 的圖層放到 makers 上面
     }
 }
-
-
