@@ -230,9 +230,13 @@ function draw_map(selected_city){
     /***** markers grop *****/
 
     for(let k = 0; k < marker_data_top3[selected_city].length; k++){
-        let this_data_top3 = marker_data_top3[selected_city][k];
-        let coor_top3 = [parseFloat(this_data_top3[0]), parseFloat(this_data_top3[1])];
-        L.circle(coor_top3, {color: null,
+        // let this_data_top3 = marker_data_top3[selected_city][k];
+        // let coor_top3 = [parseFloat(this_data_top3[0]), parseFloat(this_data_top3[1])];
+        // L.circle(coor_top3, {color: null,
+        // fillColor: 'blue',
+        // fillOpacity: 0.02,
+        // radius: 200}).addTo(map);
+        L.circle([parseFloat(marker_data_top3[selected_city][k][0]), parseFloat(marker_data_top3[selected_city][k][1])], {color: null,
         fillColor: 'blue',
         fillOpacity: 0.02,
         radius: 200}).addTo(map);
