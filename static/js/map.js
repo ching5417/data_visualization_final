@@ -134,8 +134,12 @@ function selected_fn(s){
         
     }
     else{
-        $("#county0_top").change(document.getElementById("county0_top").selectedIndex = select_index[s]);
-        $("#county0_bottom").change(document.getElementById("county0_bottom").selectedIndex = select_index[s]);   
+        document.getElementById("county0_top").selectedIndex = select_index[s];
+        document.getElementById("county0_bottom").selectedIndex = select_index[s];
+        var event_1 = new Event('change');
+        document.getElementById("county0_top").dispatchEvent(event_1);
+        var event_2 = new Event('change');
+        document.getElementById("county0_bottom").dispatchEvent(event_2);
         selected_city = s;
         if(!first_draw){
             map.remove();
