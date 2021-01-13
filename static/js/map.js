@@ -75,7 +75,7 @@ $.getScript('https://ching5417.github.io/final_tmp_data_a1/data_a1.js', function
     marker_data_a1 = a1;
 });
 var marker_data_a2;
-$.getScript('http://ching5417.github.io/final_tmp_data_a2/data_a2.js', function(){
+$.getScript('https://ching5417.github.io/final_tmp_data_a2/data_a2.js', function(){
     marker_data_a2 = a2;
 });
 var marker_data_a2_1;
