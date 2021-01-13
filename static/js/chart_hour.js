@@ -1,3 +1,8 @@
+var city_en = {'臺北市':"Taipei City",'新北市':"New Taipei City",'桃園市':"Taoyuan City",'臺中市':"Taichung City",'臺南市':"Tainan City",'高雄市':"Kaohsiung City",
+'新竹縣':"Hsinchu County",'苗栗縣':"Miaoli County",'彰化縣':"Changhua County",'南投縣':"Nantou County",'雲林縣':"Yunlin County",'嘉義縣':"Chiayi County",'屏東縣':"Pingtung County",
+'宜蘭縣':"Yilan County",'花蓮縣':"Hualien County",'臺東縣':"Taitung County",'澎湖縣':"Penghu County",'金門縣':"Kinmen County",'連江縣':"Lienchiang County",
+'基隆市':"Keelung City",'新竹市':"Hsinchu City",'嘉義市':"Chiayi City"};
+
 (function (d3) {
     'use strict';
   
@@ -57,6 +62,17 @@
         svg_bottom.selectAll("*").remove();
       render(countyData);
     }
+    function update_(s){
+      if (d3.select("#choose1_bottom").property("checked")) {choose1_bottom = 1;}
+    else {choose1_bottom = 0;}	
+      if (d3.select("#choose2_bottom").property("checked")) {choose2_bottom = 1;}
+    else {choose2_bottom = 0;}
+    county0_bottom = city_en[s];
+    county1_bottom = d3.select("#county1_bottom").node().value;
+    county2_bottom = d3.select("#county2_bottom").node().value;
+      svg_bottom.selectAll("*").remove();
+    render(countyData);
+  }
   
     const render = (data) => {
       
